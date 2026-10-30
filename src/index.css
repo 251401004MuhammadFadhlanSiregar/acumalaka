@@ -1,0 +1,44 @@
+@import "tailwindcss"; /* line 1 : Mengimpor seluruh fungsionalitas dan class utility bawaan Tailwind CSS v4 */
+/* line 2 : Baris kosong sebagai pemisah visual antar blok style */
+:root { /* line 3 : Menentukan variabel global CSS dan pengaturan tipografi bawaan dokumen */
+  font-family: "Segoe UI", Arial, sans-serif; /* line 4 : Menetapkan jenis font default untuk seluruh halaman website */
+  color: #29291f; /* line 5 : Menetapkan warna teks default bernuansa cokelat tua gelap (ink) */
+  font-synthesis: none; /* line 6 : Mencegah browser membuat simulasi style font miring atau tebal secara sintetis */
+  text-rendering: optimizeLegibility; /* line 7 : Mengoptimalkan proses render teks agar ligatur huruf dan spasi terbaca jelas */
+  -webkit-font-smoothing: antialiased; /* line 8 : Menghaluskan tampilan tepi font pada browser WebKit/macOS */
+  -moz-osx-font-smoothing: grayscale; /* line 9 : Menghaluskan render font pada browser Firefox di macOS */
+  font-optical-sizing: auto; /* line 10 : Menyesuaikan bentuk karakter font secara otomatis sesuai ukuran tampilan */
+  font-weight: 400; /* line 11 : Menentukan ketebalan font default bernilai reguler (400) */
+/* line 12 : Baris kosong pemisah antara font dan deklarasi variabel tema */
+  --ink: #29291f; /* line 13 : CSS variable untuk warna teks utama (gelap pekat hangat) */
+  --muted: #737267; /* line 14 : CSS variable untuk warna teks sekunder / abu-abu kecokelatan */
+  --olive: #48533e; /* line 15 : CSS variable untuk warna aksen hijau zaitun khas kopi */
+  --line: #e7e4db; /* line 16 : CSS variable untuk warna garis pembatas / border lembut */
+} /* line 17 : Penutup blok selektor :root */
+/* line 18 : Baris kosong pemisah antar aturan CSS */
+* { /* line 19 : Selektor universal untuk menargetkan seluruh elemen di dalam DOM */
+  box-sizing: border-box; /* line 20 : Memastikan padding dan border dihitung di dalam total ukuran lebar dan tinggi elemen */
+} /* line 21 : Penutup selektor universal */
+/* line 22 : Baris kosong pemisah */
+html { /* line 23 : Mengatur gaya dasar pada elemen akar dokumen html */
+  min-width: 320px; /* line 24 : Batas minimal lebar halaman agar tampilan tidak rusak di layar sangat kecil */
+  overflow-x: clip; /* line 25 : Memotong konten horizontal yang meluap agar tidak menimbulkan scrollbar samping yang tidak diinginkan */
+  scroll-behavior: smooth; /* line 26 : Memberikan efek pergerakan scroll yang halus saat navigasi link anchor (#) diklik */
+} /* line 27 : Penutup blok elemen html */
+/* line 28 : Baris kosong pemisah */
+body { /* line 29 : Mengatur gaya dasar pada elemen body utama */
+  min-width: 320px; /* line 30 : Menjaga lebar minimal body tetap stabil di 320px */
+  min-height: 100vh; /* line 31 : Memastikan tinggi body minimal memenuhi 100% viewport layar browser */
+  margin: 0; /* line 32 : Menghilangkan margin default bawaan browser pada tag body */
+  background-color: #f8f7f2; /* line 33 : Menentukan warna latar belakang website bernuansa krem lembut */
+} /* line 34 : Penutup blok elemen body */
+/* line 35 : Baris kosong pemisah */
+a:focus-visible { /* line 36 : Mengatur indikator fokus pada link ketika diakses menggunakan keyboard (tab) demi aksesibilitas */
+  outline: 2px solid var(--olive); /* line 37 : Memberikan garis luar sebesar 2px dengan warna zaitun saat elemen terpilih */
+  outline-offset: 4px; /* line 38 : Memberikan jarak 4px antara garis outline dengan tepi elemen link */
+} /* line 39 : Penutup selektor a:focus-visible */
+/* line 40 : Baris kosong pemisah */
+::selection { /* line 41 : Menyesuaikan tampilan warna ketika pengguna melakukan blok/highlight teks */
+  background: #dfe3d6; /* line 42 : Warna latar highlight seleksi teks (hijau lembut senada) */
+  color: var(--ink); /* line 43 : Warna teks saat dalam kondisi terblok */
+} /* line 44 : Penutup pseudo-element ::selection */

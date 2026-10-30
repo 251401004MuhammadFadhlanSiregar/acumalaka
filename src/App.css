@@ -1,0 +1,498 @@
+#root { /* line 1 : Selektor ID #root, menargetkan elemen HTML utama tempat seluruh aplikasi React dirender */
+  width: min(1240px, 100%); /* line 2 : Mengatur lebar kontainer maksimal 1240px atau 100% jika layar lebih kecil */
+  min-height: 100vh; /* line 3 : Menetapkan tinggi minimal kontainer setinggi 100% tinggi layar (viewport) */
+  margin: 0 auto; /* line 4 : Mengatur margin vertikal 0 dan horizontal auto agar kontainer berada tepat di tengah halaman */
+  padding: 0 48px; /* line 5 : Memberi padding horizontal sebesar 48px pada sisi kiri dan kanan */
+} /* line 6 : Penutup blok aturan CSS untuk elemen #root */
+/* line 7 : Baris kosong pemisah antar aturan CSS */
+.site-header { /* line 8 : Selektor class .site-header untuk wadah bilah navigasi atas */
+  position: relative; /* line 9 : Menentukan konteks pemosisian elemen relatif */
+  isolation: isolate; /* line 10 : Membuat stacking context baru agar z-index anak elemen terisolasi dari luar */
+  min-height: 76px; /* line 11 : Menentukan tinggi minimal header sebesar 76px */
+  gap: 20px; /* line 12 : Mengatur jarak antar item flex di dalam header sebesar 20px */
+} /* line 13 : Penutup blok gaya .site-header */
+/* line 14 : Baris kosong pemisah */
+.site-header::before { /* line 15 : Pseudo-element ::before pada .site-header untuk membuat latar belakang lebar penuh layar */
+  position: absolute; /* line 16 : Posisi absolut agar menutupi seluruh area bilah navigasi */
+  z-index: -1; /* line 17 : Menempatkan lapisan latar di belakang konten header dengan z-index -1 */
+  top: 0; /* line 18 : Menempelkan posisi dari bagian paling atas (top: 0) */
+  left: 50%; /* line 19 : Menempatkan titik acuan horizontal di tengah layar (50%) */
+  width: 100vw; /* line 20 : Lebar penuh setara 100vw (100% lebar layar viewport) */
+  height: 100%; /* line 21 : Tinggi penuh 100% mengikuti tinggi header */
+  transform: translateX(-50%); /* line 22 : Menggeser posisi ke kiri sebesar 50% lebar elemen agar tepat rata tengah layar */
+  background: #e8e2d9; /* line 23 : Warna latar belakang krem lembut #e8e2d9 */
+  content: ""; /* line 24 : Menetapkan properti content kosong sebagai syarat memunculkan pseudo-element */
+} /* line 25 : Penutup blok pseudo-element .site-header::before */
+/* line 26 : Baris kosong pemisah */
+.brand { /* line 27 : Selektor class .brand untuk elemen logo dan nama identitas kedai kopi */
+  display: inline-flex; /* line 28 : Menggunakan layout inline-flex agar elemen berjejer horizontal sejajar teks */
+  align-items: center; /* line 29 : Menyejajarkan item secara vertikal tepat di tengah (center) */
+  gap: 12px; /* line 30 : Memberi jarak celah 12px antara lambang logo dengan teks merek */
+  color: #4d3324; /* line 31 : Warna teks cokelat tua gelap pekat #4d3324 khas biji kopi sangrai */
+  text-decoration: none; /* line 32 : Menghilangkan garis bawah default pada tautan link */
+} /* line 33 : Penutup blok gaya .brand */
+/* line 34 : Baris kosong pemisah */
+.brand-mark { /* line 35 : Selektor class .brand-mark untuk lingkaran lambang inisial logo kedai */
+  width: 36px; /* line 36 : Menentukan lebar kotak lambang sebesar 36px */
+  height: 36px; /* line 37 : Menentukan tinggi kotak lambang sebesar 36px */
+  display: grid; /* line 38 : Menggunakan layout CSS Grid untuk pemusatan konten */
+  place-items: center; /* line 39 : Menempatkan huruf inisial tepat di tengah-tengah lingkaran (place-items: center) */
+  border: 1px solid #907a8d; /* line 40 : Garis batas tepi tipis 1px dengan warna abu-abu keunguan lembut #907a8d */
+  border-radius: 50%; /* line 41 : Bentuk sudut lingkaran bulat penuh 50% */
+  color: #684d63; /* line 42 : Warna huruf inisial K bernuansa plum kecokelatan #684d63 */
+  font-family: Georgia, serif; /* line 43 : Menggunakan keluarga font serif Georgia yang klasik dan berkelas */
+  font-size: 19px; /* line 44 : Ukuran huruf inisial sebesar 19px */
+  font-style: italic; /* line 45 : Gaya huruf miring (italic) untuk memberikan kesan artistik kaligrafi */
+} /* line 46 : Penutup blok gaya .brand-mark */
+/* line 47 : Baris kosong pemisah */
+.brand strong, /* line 48 : Selektor ganda untuk elemen strong di dalam brand */
+.brand small { /* line 49 : Selektor lanjutan untuk elemen small di dalam brand */
+  display: block; /* line 50 : Menjadikan elemen bertipe display block agar bertumpuk secara vertikal */
+} /* line 51 : Penutup blok gaya .brand strong dan small */
+/* line 52 : Baris kosong pemisah */
+.brand strong { /* line 53 : Selektor class .brand strong khusus untuk nama utama merek Kopi Ruang Kita */
+  font-family: Georgia, "Times New Roman", serif; /* line 54 : Menggunakan keluarga font serif klasik Georgia atau Times New Roman */
+  font-size: 19px; /* line 55 : Ukuran font nama merek sebesar 19px */
+  font-weight: 700; /* line 56 : Ketebalan font tebal bernilai 700 (bold) */
+} /* line 57 : Penutup blok gaya .brand strong */
+/* line 58 : Baris kosong pemisah */
+.brand small { /* line 59 : Selektor class .brand small untuk tagline kecil di bawah nama merek */
+  margin-top: 1px; /* line 60 : Memberi jarak atas kecil sebesar 1px dari nama merek */
+  color: #77675b; /* line 61 : Warna teks slogan bernuansa cokelat abu-abu lembut #77675b */
+  font-size: 10px; /* line 62 : Ukuran font slogan berukuran kecil 10px */
+  letter-spacing: 0.04em; /* line 63 : Memberi jarak renggang antar karakter huruf sebesar 0.04em */
+} /* line 64 : Penutup blok gaya .brand small */
+/* line 65 : Baris kosong pemisah */
+.navigation { /* line 66 : Selektor class .navigation untuk wadah baris menu navigasi */
+  display: flex; /* line 67 : Menggunakan layout CSS Flexbox horizontal */
+  align-items: center; /* line 68 : Menyejajarkan tautan menu tepat di tengah secara vertikal */
+  gap: 28px; /* line 69 : Memberi jarak pemisah sebesar 28px antar item menu navigasi */
+} /* line 70 : Penutup blok gaya .navigation */
+/* line 71 : Baris kosong pemisah */
+.navigation a, /* line 72 : Selektor untuk link tautan navigasi */
+.back-to-top { /* line 73 : Selektor untuk tombol pintas kembali ke atas .back-to-top */
+  color: #34291f; /* line 74 : Warna teks tautan cokelat gelap #34291f */
+  font-size: 13px; /* line 75 : Ukuran teks link sebesar 13px */
+  text-decoration: none; /* line 76 : Menghilangkan garis bawah tautan */
+  font-family: "Segoe UI", Arial, sans-serif; /* line 77 : Menggunakan font sans-serif Segoe UI yang bersih dan mudah dibaca */
+  transition: color 180ms ease; /* line 78 : Efek transisi warna halus selama 180ms dengan fungsi timing ease */
+} /* line 79 : Penutup blok gaya tautan navigasi dan back-to-top */
+/* line 80 : Baris kosong pemisah */
+.navigation a:hover, /* line 81 : Pseudo-class hover untuk tautan navigasi */
+.back-to-top:hover { /* line 82 : Pseudo-class hover untuk tombol kembali ke atas */
+  color: var(--olive); /* line 83 : Mengubah warna teks menjadi hijau zaitun var(--olive) saat kursor diarahkan */
+} /* line 84 : Penutup blok hover navigasi */
+/* line 85 : Baris kosong pemisah */
+.navigation .nav-cta { /* line 86 : Selektor tombol aksi khusus pada navigasi .nav-cta */
+  padding: 8px 14px; /* line 87 : Memberi ruang bantalan vertikal 8px dan horizontal 14px */
+  border: 1px solid #cfc5b8; /* line 88 : Garis batas tepi tipis 1px berwarna krem kecokelatan #cfc5b8 */
+  border-radius: 999px; /* line 89 : Sudut melengkung bentuk kapsul lonjong sempurna (border-radius: 999px) */
+} /* line 90 : Penutup blok gaya .nav-cta */
+/* line 91 : Baris kosong pemisah */
+.nav-cta span { /* line 92 : Selektor ikon panah di dalam tombol .nav-cta span */
+  margin-left: 5px; /* line 93 : Memberi margin kiri sebesar 5px dari teks tombol */
+} /* line 94 : Penutup blok gaya .nav-cta span */
+/* line 95 : Baris kosong pemisah */
+.hero { /* line 96 : Selektor class .hero untuk section pembuka halaman utama */
+  position: relative; /* line 97 : Menentukan konteks pemosisian relatif */
+  isolation: isolate; /* line 98 : Membuat stacking context terisolasi untuk mengontrol urutan lapisan z-index */
+  min-height: calc(100svh - 76px); /* line 99 : Tinggi minimal 100svh dikurangi tinggi header 76px agar pas memenuhi layar pertama */
+  display: grid; /* line 100 : Menggunakan layout CSS Grid dua kolom */
+  grid-template-columns: 0.92fr 1.08fr; /* line 101 : Proporsi lebar kolom: 0.92 bagian untuk teks kiri dan 1.08 bagian untuk gambar kanan */
+  align-items: center; /* line 102 : Menyejajarkan teks dan gambar tepat di tengah vertikal (align-items: center) */
+  gap: 56px; /* line 103 : Memberi jarak celah horizontal 56px antara teks dan foto */
+  padding: 20px 0 72px; /* line 104 : Padding atas 20px, samping 0, dan bawah 72px */
+} /* line 105 : Penutup blok gaya .hero */
+/* line 106 : Baris kosong pemisah */
+.hero::before { /* line 107 : Pseudo-element ::before pada .hero untuk gambar latar belakang parallax suasana kedai */
+  position: absolute; /* line 108 : Posisi absolut menutupi seluruh area hero */
+  z-index: -1; /* line 109 : Z-index -1 menempatkan gambar latar di belakang teks dan foto hero */
+  top: 0; /* line 110 : Menempel dari batas atas 0 */
+  left: 50%; /* line 111 : Posisi horizontal acuan tengah 50% */
+  width: 100vw; /* line 112 : Lebar 100vw selebar penuh layar pengguna */
+  height: 100%; /* line 113 : Tinggi 100% mengikuti tinggi kontainer hero */
+  transform: translateX(-50%); /* line 114 : Menggeser posisi horizontal ke kiri 50% agar posisi latar simetris di tengah layar */
+  content: ""; /* line 115 : Nilai content kosong untuk memunculkan elemen semu */
+  background-color: #e8e2d9; /* line 116 : Warna dasar latar belakang krem hangat #e8e2d9 */
+  background-image: /* line 117 : Properti gambar latar belakang kombinasi gradien dan foto */
+    linear-gradient(rgb(232 226 217 / 100%), rgb(232 226 217 / 75%)), /* line 118 : Lapisan gradien linier krem transparan untuk menjaga keterbacaan teks di atas foto */
+    url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=2000&q=80"); /* line 119 : Foto latar belakang suasana kedai kopi resolusi tinggi dari Unsplash */
+  background-position: center; /* line 120 : Posisi foto tepat di tengah area (center) */
+  background-size: cover; /* line 121 : Skala foto menutupi seluruh area secara proporsional (cover) */
+  background-attachment: fixed; /* line 122 : Efek latar belakang tetap diam saat halaman discroll (background-attachment: fixed) */
+} /* line 123 : Penutup blok gaya .hero::before */
+/* line 124 : Baris kosong pemisah */
+.hero-copy { /* line 125 : Selektor class .hero-copy untuk kontainer kolom teks pengantar di sisi kiri */
+  padding: 30px 0; /* line 126 : Memberikan bantalan vertikal atas dan bawah sebesar 30px */
+} /* line 127 : Penutup blok gaya .hero-copy */
+/* line 128 : Baris kosong pemisah */
+.eyebrow { /* line 129 : Selektor class .eyebrow untuk teks slogan kecil di atas judul utama */
+  margin: 0 0 23px; /* line 130 : Margin atas 0, samping 0, dan margin bawah 23px */
+  color: var(--olive); /* line 131 : Warna teks menggunakan aksen hijau zaitun var(--olive) */
+  font-size: 11px; /* line 132 : Ukuran font kecil 11px */
+  font-weight: 600; /* line 133 : Ketebalan semi-tebal font-weight 600 */
+  letter-spacing: 0.13em; /* line 134 : Jarak renggang spasi huruf lebar tracking 0.13em untuk kesan premium */
+} /* line 135 : Penutup blok gaya .eyebrow */
+/* line 136 : Baris kosong pemisah */
+.eyebrow span { /* line 137 : Selektor ikon atau simbol di dalam .eyebrow span */
+  font-size: 16px; /* line 138 : Ukuran font ikon sebesar 16px */
+} /* line 139 : Penutup blok gaya .eyebrow span */
+/* line 140 : Baris kosong pemisah */
+.hero h1 { /* line 141 : Selektor judul utama .hero h1 */
+  margin: 0; /* line 142 : Menghilangkan margin bawaan browser pada tag h1 */
+  color: var(--ink); /* line 143 : Warna font teks utama bernuansa cokelat pekat var(--ink) */
+  font-family: Georgia, "Times New Roman", serif; /* line 144 : Font serif Georgia klasik yang mewah dan berkarakter hangat */
+  font-size: clamp(48px, 6vw, 76px); /* line 145 : Ukuran font responsif clamp: minimal 48px, ideal 6vw, dan maksimal 76px */
+  font-weight: 400; /* line 146 : Ketebalan font reguler bernilai 400 */
+  letter-spacing: -0.065em; /* line 147 : Jarak huruf rapat -0.065em khas gaya tipografi editorial modern */
+  line-height: 1.06; /* line 148 : Jarak antar baris teks (line-height) sangat rapat 1.06 */
+  text-shadow: 0 2px 12px rgb(48 39 29 / 16%); /* line 149 : Efek bayangan teks halus untuk mempertegas kontras di atas latar belakang */
+} /* line 150 : Penutup blok gaya .hero h1 */
+/* line 151 : Baris kosong pemisah */
+.hero h1 em { /* line 152 : Selektor kata miring penekanan di dalam judul utama .hero h1 em */
+  color: var(--olive); /* line 153 : Warna teks kata penekanan bernuansa hijau zaitun var(--olive) */
+  font-weight: 400; /* line 154 : Ketebalan huruf reguler 400 */
+} /* line 155 : Penutup blok gaya .hero h1 em */
+/* line 156 : Baris kosong pemisah */
+.hero-description { /* line 157 : Selektor class .hero-description untuk paragraf deskripsi sambutan kedai */
+  max-width: 390px; /* line 158 : Membatasi lebar maksimal paragraf sepanjang 390px agar nyaman dibaca mata */
+  margin: 24px 0 28px; /* line 159 : Margin atas 24px, samping 0, dan bawah 28px */
+  color: var(--muted); /* line 160 : Warna teks sekunder abu-abu hangat var(--muted) */
+  font-size: 15px; /* line 161 : Ukuran font isi paragraf 15px */
+  line-height: 1.85; /* line 162 : Ketinggian baris teks lega 1.85 untuk kenyamanan membaca santai */
+  text-shadow: 0 1px 8px rgb(255 255 255 / 70%); /* line 163 : Bayangan teks putih tipis agar kontras teks tetap tajam di atas foto latar */
+} /* line 164 : Penutup blok gaya .hero-description */
+/* line 165 : Baris kosong pemisah */
+.primary-cta { /* line 166 : Selektor class .primary-cta untuk tombol Call-To-Action utama Lihat Menu */
+  padding: 15px 21px; /* line 167 : Bantalan tombol atas-bawah 15px dan kiri-kanan 21px */
+  border-radius: 3px; /* line 168 : Kelengkungan sudut tepi tombol sebesar 3px */
+  background: var(--olive); /* line 169 : Warna latar tombol menggunakan hijau zaitun var(--olive) */
+  color: #fffdf8; /* line 170 : Warna teks tombol putih gading #fffdf8 */
+  font-size: 13px; /* line 171 : Ukuran font tombol sebesar 13px */
+  text-decoration: none; /* line 172 : Menghilangkan garis bawah tautan */
+  box-shadow: 0 7px 16px rgb(43 47 36 / 24%); /* line 173 : Efek bayangan tombol bernuansa hijau zaitun gelap dengan transparansi 24% */
+  transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease; /* line 174 : Transisi halus untuk perubahan warna latar, posisi terangkat, dan bayangan selama 180ms */
+} /* line 175 : Penutup blok gaya .primary-cta */
+/* line 176 : Baris kosong pemisah */
+.primary-cta:hover { /* line 177 : Pseudo-class hover pada tombol .primary-cta saat disorot kursor mouse */
+  transform: translateY(-2px); /* line 178 : Efek mengangkat tombol 2px ke atas (translateY(-2px)) */
+  background: #35402d; /* line 179 : Warna latar tombol menjadi lebih pekat #35402d */
+  box-shadow: 0 10px 20px rgb(43 47 36 / 30%); /* line 180 : Bayangan tombol melebar ke bawah menciptakan ilusi kedalaman 3D */
+} /* line 181 : Penutup blok gaya .primary-cta:hover */
+/* line 182 : Baris kosong pemisah */
+.primary-cta span { /* line 183 : Selektor ikon panah di dalam tombol utama .primary-cta span */
+  font-size: 17px; /* line 184 : Ukuran simbol panah sebesar 17px */
+} /* line 185 : Penutup blok gaya .primary-cta span */
+/* line 186 : Baris kosong pemisah */
+.hero-note { /* line 187 : Selektor catatan kaki kecil bernada puitis .hero-note */
+  margin: 23px 0 0; /* line 188 : Margin atas 23px dari tombol CTA */
+  color: #8b897f; /* line 189 : Warna teks abu-abu lembut #8b897f */
+  font-family: Georgia, "Times New Roman", serif; /* line 190 : Font serif Georgia klasik */
+  font-size: 13px; /* line 191 : Ukuran huruf kecil 13px */
+  font-style: italic; /* line 192 : Gaya tulisan miring (italic) */
+} /* line 193 : Penutup blok gaya .hero-note */
+/* line 194 : Baris kosong pemisah */
+.hero-image { /* line 195 : Selektor wadah bingkai foto suasana kedai .hero-image */
+  position: relative; /* line 196 : Posisi relatif untuk menjaga stabilitas tata letak */
+  min-height: 480px; /* line 197 : Tinggi minimal wadah foto 480px */
+  height: min(55vw, 560px); /* line 198 : Tinggi responsif: 55vw layar atau maksimal 560px */
+  overflow: hidden; /* line 199 : Memotong bagian gambar yang meluap keluar batas sudut bingkai (overflow: hidden) */
+  border-radius: 48% 48% 4px 4px; /* line 200 : Bentuk lengkungan kubah estetis: atas membulat 48% dan bawah melengkung halus 4px */
+  background: #d7caba; /* line 201 : Warna latar cadangan krem pasir #d7caba saat gambar sedang dimuat */
+  box-shadow: 0 18px 38px rgb(43 35 26 / 24%), 0 4px 10px rgb(43 35 26 / 14%); /* line 202 : Efek bayangan ganda yang dalam dan realistis di bawah bingkai foto */
+} /* line 203 : Penutup blok gaya .hero-image */
+/* line 204 : Baris kosong pemisah */
+.hero-image img { /* line 205 : Selektor elemen tag gambar di dalam wadah foto .hero-image img */
+  width: 100%; /* line 206 : Lebar gambar mengisi penuh 100% wadah */
+  height: 100%; /* line 207 : Tinggi gambar mengisi penuh 100% wadah */
+  display: block; /* line 208 : Tipe tampilan block untuk menghilangkan celah spasi bawah inline */
+  object-fit: cover; /* line 209 : Mempertahankan aspek rasio foto tanpa distorsi (object-fit: cover) */
+  object-position: center; /* line 210 : Fokus posisi foto tepat di tengah bingkai (center) */
+} /* line 211 : Penutup blok gaya .hero-image img */
+/* line 212 : Baris kosong pemisah */
+.about-section { /* line 213 : Selektor class .about-section untuk bagian profil Tentang Kami */
+  width: 100vw; /* line 214 : Lebar penuh layar 100vw */
+  margin-left: calc(50% - 50vw); /* line 215 : Kompensasi margin kiri agar latar bagian tentang melebar penuh dari tepi kiri ke kanan layar */
+  padding: 64px 24px 72px; /* line 216 : Padding atas 64px, samping 24px, dan bawah 72px */
+  background: #f3f0e8; /* line 217 : Warna latar krem lembut #f3f0e8 */
+} /* line 218 : Penutup blok gaya .about-section */
+/* line 219 : Baris kosong pemisah */
+.about-content { /* line 220 : Selektor kontainer konten .about-content di dalam bagian tentang */
+  width: min(980px, 100%); /* line 221 : Lebar maksimal 980px atau 100% pada layar yang lebih kecil */
+  margin: 0 auto; /* line 222 : Margin horizontal auto agar konten berada tepat di tengah halaman */
+  display: grid; /* line 223 : Layout CSS Grid dua kolom */
+  grid-template-columns: 0.95fr 1.05fr; /* line 224 : Pembagian proporsi grid: 0.95 bagian teks dan 1.05 bagian galeri foto */
+  align-items: center; /* line 225 : Menyejajarkan teks dan foto di tengah secara vertikal */
+  gap: 36px; /* line 226 : Jarak pemisah antar kolom grid sebesar 36px */
+} /* line 227 : Penutup blok gaya .about-content */
+/* line 228 : Baris kosong pemisah */
+.about-copy h2 { /* line 229 : Selektor judul bagian Tentang Kami .about-copy h2 */
+  margin: 0 0 14px; /* line 230 : Margin bawah 14px dari teks paragraf */
+  color: #513722; /* line 231 : Warna teks cokelat tua hangat #513722 */
+  font-family: Georgia, "Times New Roman", serif; /* line 232 : Tipografi font serif Georgia klasik */
+  font-size: 36px; /* line 233 : Ukuran font judul 36px */
+  font-weight: 700; /* line 234 : Ketebalan font tebal 700 (bold) */
+  line-height: 1.2; /* line 235 : Ketinggian baris teks padat 1.2 */
+} /* line 236 : Penutup blok gaya .about-copy h2 */
+/* line 237 : Baris kosong pemisah */
+.about-copy p { /* line 238 : Selektor paragraf cerita kedai .about-copy p */
+  margin: 0 0 15px; /* line 239 : Margin bawah 15px antar paragraf */
+  color: #746658; /* line 240 : Warna teks cokelat abu-abu #746658 yang mudah dibaca */
+  font-size: 15px; /* line 241 : Ukuran font isi paragraf 15px */
+  line-height: 1.65; /* line 242 : Ketinggian baris teks nyaman 1.65 */
+} /* line 243 : Penutup blok gaya .about-copy p */
+/* line 244 : Baris kosong pemisah */
+.about-copy strong { /* line 245 : Selektor teks tebal di dalam cerita kedai .about-copy strong */
+  color: #594431; /* line 246 : Warna font cokelat lebih gelap #594431 untuk mempertegas nama kedai */
+} /* line 247 : Penutup blok gaya .about-copy strong */
+/* line 248 : Baris kosong pemisah */
+.about-highlights { /* line 249 : Selektor daftar poin keunggulan kedai .about-highlights */
+  display: grid; /* line 250 : Layout CSS Grid vertikal */
+  gap: 10px; /* line 251 : Jarak celah 10px antar butir keunggulan */
+  margin: 22px 0 0; /* line 252 : Margin atas 22px dari paragraf deskripsi */
+  padding: 0; /* line 253 : Menghilangkan padding bawaan daftar ul */
+  color: #69533d; /* line 254 : Warna teks butir keunggulan #69533d */
+  font-size: 14px; /* line 255 : Ukuran font butir 14px */
+  list-style: none; /* line 256 : Menghilangkan tanda titik default list-style none */
+} /* line 257 : Penutup blok gaya .about-highlights */
+/* line 258 : Baris kosong pemisah */
+.about-highlights li { /* line 259 : Selektor setiap baris butir li pada poin keunggulan */
+  display: flex; /* line 260 : Layout Flexbox horizontal untuk meratakan ikon centang dengan teks */
+  align-items: center; /* line 261 : Menyejajarkan ikon dan teks tepat di tengah vertikal */
+  gap: 8px; /* line 262 : Jarak celah 8px antara ikon centang dengan teks */
+} /* line 263 : Penutup blok gaya .about-highlights li */
+/* line 264 : Baris kosong pemisah */
+.about-highlights li span { /* line 265 : Selektor kotak ikon centang hijau .about-highlights li span */
+  width: 18px; /* line 266 : Lebar kotak centang 18px */
+  height: 18px; /* line 267 : Tinggi kotak centang 18px */
+  display: grid; /* line 268 : CSS Grid untuk memposisikan centang */
+  place-items: center; /* line 269 : Menempatkan tanda centang tepat di tengah kotak */
+  border-radius: 3px; /* line 270 : Sudut kotak melengkung halus 3px */
+  background: #62c68a; /* line 271 : Warna latar kotak hijau segar #62c68a */
+  color: #fff; /* line 272 : Warna simbol centang putih bersih #fff */
+  font-size: 12px; /* line 273 : Ukuran font centang 12px */
+  font-weight: 700; /* line 274 : Ketebalan simbol centang 700 bold */
+} /* line 275 : Penutup blok gaya kotak centang */
+/* line 276 : Baris kosong pemisah */
+.about-gallery { /* line 277 : Selektor galeri foto kedai .about-gallery */
+  display: grid; /* line 278 : Layout CSS Grid dua kolom simetris (1fr 1fr) */
+  grid-template-columns: 1fr 1fr; /* line 279 : Menyejajarkan dua foto di tengah vertikal */
+  align-items: center; /* line 280 : Jarak celah horizontal 12px antar foto */
+  gap: 12px; /* line 281 : Penutup blok gaya .about-gallery */
+} /* line 282 : Baris kosong pemisah */
+/* line 283 : Selektor class umum untuk foto galeri .about-photo */
+.about-photo { /* line 284 : Lebar foto mengisi 100% kolom grid */
+  width: 100%; /* line 285 : Tinggi foto tetap sebesar 220px */
+  height: 220px; /* line 286 : Tipe tampilan block */
+  display: block; /* line 287 : Sudut bingkai foto membulat modern sebesar 12px */
+  border-radius: 12px; /* line 288 : Bayangan foto lembut berwarna kecokelatan transparan 12% */
+  box-shadow: 0 8px 16px rgb(55 43 29 / 12%); /* line 289 : Mempertahankan proporsi foto tanpa terdistorsi (object-fit: cover) */
+  object-fit: cover; /* line 290 : Penutup blok gaya .about-photo */
+} /* line 291 : Baris kosong pemisah */
+/* line 292 : Selektor khusus untuk foto galeri kedua .about-photo-second */
+.about-photo-second { /* line 293 : Pergeseran vertikal ke bawah sejauh 12px untuk menciptakan komposisi asimetris artistik */
+  transform: translateY(12px); /* line 294 : Penutup blok gaya .about-photo-second */
+} /* line 295 : Baris kosong pemisah */
+/* line 296 : Selektor class .site-footer untuk bagian catatan kaki halaman */
+.site-footer { /* line 297 : Tinggi minimal footer sebesar 112px */
+  min-height: 112px; /* line 298 : Layout flexbox horizontal */
+  display: flex; /* line 299 : Menyejajarkan seluruh elemen kaki di tengah secara vertikal */
+  align-items: center; /* line 300 : Jarak pemisah antar kelompok konten sebesar 24px */
+  gap: 24px; /* line 301 : Bantalan padding vertikal atas dan bawah 22px */
+  padding: 22px 0; /* line 302 : Garis pembatas atas tipis 1px berwarna lembut var(--line) */
+  border-top: 1px solid var(--line); /* line 303 : Penutup blok gaya .site-footer */
+} /* line 304 : Baris kosong pemisah */
+/* line 305 : Selektor logo inisial di dalam footer .footer-brand .brand-mark */
+.footer-brand .brand-mark { /* line 306 : Ukuran lebar logo 36px */
+  width: 36px; /* line 307 : Ukuran tinggi logo 36px */
+  height: 36px; /* line 308 : Ukuran huruf inisial 19px */
+  font-size: 19px; /* line 309 : Penutup blok gaya logo footer */
+} /* line 310 : Baris kosong pemisah */
+/* line 311 : Selektor nama merek di dalam footer .footer-brand strong */
+.footer-brand strong { /* line 312 : Ukuran font nama merek 14px */
+  font-size: 14px; /* line 313 : Penutup blok gaya nama merek footer */
+} /* line 314 : Baris kosong pemisah */
+/* line 315 : Selektor slogan kecil di dalam footer .footer-brand small */
+.footer-brand small { /* line 316 : Ukuran font slogan 10px */
+  font-size: 10px; /* line 317 : Penutup blok gaya slogan footer */
+} /* line 318 : Baris kosong pemisah */
+/* line 319 : Selektor paragraf ringkas di dalam footer .site-footer > p */
+.site-footer > p { /* line 320 : Margin otomatis di sebelah kanan untuk mendorong elemen lain ke tepi seberang */
+  margin: 0 auto 0 12px; /* line 321 : Warna teks abu-abu lembut var(--muted) */
+  color: var(--muted); /* line 322 : Ukuran teks kecil 12px */
+  font-size: 12px; /* line 323 : Penutup blok gaya paragraf footer */
+} /* line 324 : Baris kosong pemisah */
+/* line 325 : Selektor tautan kembali ke atas .back-to-top */
+.back-to-top { /* line 326 : Mencegah pemenggalan kata ke baris baru (white-space: nowrap) */
+  white-space: nowrap; /* line 327 : Penutup blok gaya .back-to-top */
+} /* line 328 : Baris kosong pemisah */
+/* line 329 : Selektor ikon panah ke atas .back-to-top span */
+.back-to-top span { /* line 330 : Memberi jarak margin kiri 4px dari teks */
+  margin-left: 4px; /* line 331 : Penutup blok gaya panah back-to-top */
+} /* line 332 : Baris kosong pemisah */
+/* line 333 : Selektor teks hak cipta .copyright */
+.copyright { /* line 334 : Warna teks abu-abu redup #8b897f */
+  color: #8b897f; /* line 335 : Ukuran font hak cipta kecil 11px */
+  font-size: 11px; /* line 336 : Mencegah pemenggalan baris teks hak cipta */
+  white-space: nowrap; /* line 337 : Penutup blok gaya .copyright */
+} /* line 338 : Baris kosong pemisah */
+/* line 339 : Selektor atribut animasi [data-reveal] saat elemen belum terlihat di layar */
+[data-reveal] { /* line 340 : Transparansi penuh (tidak terlihat / invisible) */
+  opacity: 0; /* line 341 : Pergeseran posisi awal 24px ke bawah sumbu Y */
+  translate: 0 24px; /* line 342 : Pengaturan transisi animasi muncul perlahan */
+  transition: /* line 343 : Transisi perubahan transparansi 700ms dengan kurva bezier mulus */
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1), /* line 344 : Transisi pergeseran translasi 700ms dengan kurva cubic-bezier(0.22, 1, 0.36, 1) */
+    translate 700ms cubic-bezier(0.22, 1, 0.36, 1); /* line 345 : Penutup blok gaya [data-reveal] */
+} /* line 346 : Baris kosong pemisah */
+/* line 347 : Selektor animasi kemunculan dari arah kiri [data-reveal="left"] */
+[data-reveal="left"] { /* line 348 : Posisi awal bergeser -28px ke arah kiri sumbu X */
+  translate: -28px 0; /* line 349 : Penutup blok gaya data-reveal kiri */
+} /* line 350 : Baris kosong pemisah */
+/* line 351 : Selektor animasi kemunculan dari arah kanan [data-reveal="right"] */
+[data-reveal="right"] { /* line 352 : Posisi awal bergeser 28px ke arah kanan sumbu X */
+  translate: 28px 0; /* line 353 : Penutup blok gaya data-reveal kanan */
+} /* line 354 : Baris kosong pemisah */
+/* line 355 : Selektor status aktif saat elemen memasuki viewport pengguna [data-reveal].is-visible */
+[data-reveal].is-visible { /* line 356 : Transparansi penuh 1 (terlihat jelas) */
+  opacity: 1; /* line 357 : Posisi kembali normal tanpa pergeseran (translate: 0 0) */
+  translate: 0 0; /* line 358 : Penutup blok gaya elemen terlihat is-visible */
+} /* line 359 : Baris kosong pemisah */
+/* line 360 : Media query untuk pengguna yang mengaktifkan preferensi kurangi gerakan (aksesibilitas OS) */
+@media (prefers-reduced-motion: reduce) { /* line 361 : Selektor elemen data-reveal dalam mode reduce motion */
+  [data-reveal] { /* line 362 : Langsung tampilkan konten dengan opasitas 1 tanpa animasi fade */
+    opacity: 1; /* line 363 : Posisi langsung berada di tempat normal tanpa pergeseran */
+    translate: 0 0; /* line 364 : Menonaktifkan seluruh efek transisi waktu (transition: none) */
+    transition: none; /* line 365 : Penutup blok aturan data-reveal reduce motion */
+  } /* line 366 : Penutup blok media query prefers-reduced-motion */
+} /* line 367 : Baris kosong pemisah */
+/* line 368 : Media query responsif untuk layar perangkat tablet atau smartphone lebar maksimal 760px */
+@media (max-width: 760px) { /* line 369 : Selektor #root pada tampilan tablet/mobile */
+  #root { /* line 370 : Mengurangi padding samping kontainer utama menjadi 24px */
+    padding: 0 24px; /* line 371 : Penutup aturan #root pada breakpoint 760px */
+  } /* line 372 : Baris kosong pemisah */
+/* line 373 : Penyesuaian header .site-header pada layar tablet */
+  .site-header { /* line 374 : Menambah tinggi minimal header menjadi 82px untuk kenyamanan sentuhan tombol */
+    min-height: 82px; /* line 375 : Penutup gaya header tablet */
+  } /* line 376 : Baris kosong pemisah */
+/* line 377 : Penyesuaian jarak navigasi .navigation pada tablet */
+  .navigation { /* line 378 : Memperkecil celah pemisah antar tautan menjadi 18px */
+    gap: 18px; /* line 379 : Penutup gaya navigasi tablet */
+  } /* line 380 : Baris kosong pemisah */
+/* line 381 : Penyesuaian tautan navigasi .navigation a pada tablet */
+  .navigation a { /* line 382 : Memperkecil ukuran font tautan menjadi 12px */
+    font-size: 12px; /* line 383 : Penutup gaya tautan navigasi tablet */
+  } /* line 384 : Baris kosong pemisah */
+/* line 385 : Penyesuaian tombol .navigation .nav-cta pada tablet */
+  .navigation .nav-cta { /* line 386 : Menyesuaikan bantalan tombol menjadi 9px vertikal dan 12px horizontal */
+    padding: 9px 12px; /* line 387 : Penutup gaya tombol cta tablet */
+  } /* line 388 : Baris kosong pemisah */
+/* line 389 : Penyesuaian tata letak bagian hero .hero pada layar tablet/mobile */
+  .hero { /* line 390 : Tinggi minimal 100svh dikurangi 82px tinggi header baru */
+    min-height: calc(100svh - 82px); /* line 391 : Mengubah layout grid menjadi 1 kolom tunggal bertumpuk vertikal */
+    grid-template-columns: 1fr; /* line 392 : Mengurangi jarak celah pemisah menjadi 32px */
+    gap: 32px; /* line 393 : Padding atas 34px, samping 0, dan bawah 48px */
+    padding: 34px 0 48px; /* line 394 : Penutup gaya hero tablet */
+  } /* line 395 : Baris kosong pemisah */
+/* line 396 : Penyesuaian wadah teks hero-copy pada tablet */
+  .hero-copy { /* line 397 : Mengurangi bantalan atas menjadi 10px */
+    padding: 10px 0 0; /* line 398 : Penutup gaya hero-copy tablet */
+  } /* line 399 : Baris kosong pemisah */
+/* line 400 : Penyesuaian ukuran font judul utama .hero h1 pada tablet/mobile */
+  .hero h1 { /* line 401 : Rentang font dinamis clamp: minimal 48px, ideal 12vw, dan maksimal 68px */
+    font-size: clamp(48px, 12vw, 68px); /* line 402 : Penutup gaya hero h1 tablet */
+  } /* line 403 : Baris kosong pemisah */
+/* line 404 : Penyesuaian wadah gambar .hero-image pada layar tablet/mobile */
+  .hero-image { /* line 405 : Tinggi minimal bingkai gambar disesuaikan menjadi 350px */
+    min-height: 350px; /* line 406 : Tinggi proporsional 62vw layar */
+    height: 62vw; /* line 407 : Batas tinggi maksimal 470px */
+    max-height: 470px; /* line 408 : Lengkungan kubah atas disesuaikan menjadi 46% 46% */
+    border-radius: 46% 46% 4px 4px; /* line 409 : Penutup gaya hero-image tablet */
+  } /* line 410 : Baris kosong pemisah */
+/* line 411 : Penyesuaian bagian tentang kami .about-section pada tablet */
+  .about-section { /* line 412 : Padding atas 48px, samping 24px, dan bawah 56px */
+    padding: 48px 24px 56px; /* line 413 : Penutup gaya about-section tablet */
+  } /* line 414 : Baris kosong pemisah */
+/* line 415 : Penyesuaian grid isi tentang kami .about-content pada tablet */
+  .about-content { /* line 416 : Mengubah grid menjadi 1 kolom vertikal */
+    grid-template-columns: 1fr; /* line 417 : Jarak pemisah antar teks dan galeri disetel 24px */
+    gap: 24px; /* line 418 : Penutup gaya about-content tablet */
+  } /* line 419 : Baris kosong pemisah */
+/* line 420 : Penyesuaian tinggi foto galeri .about-photo pada tablet */
+  .about-photo { /* line 421 : Tinggi foto disesuaikan menjadi 210px */
+    height: 210px; /* line 422 : Penutup gaya foto galeri tablet */
+  } /* line 423 : Baris kosong pemisah */
+/* line 424 : Penyesuaian ukuran judul tentang kami .about-copy h2 pada tablet */
+  .about-copy h2 { /* line 425 : Ukuran font judul disetel menjadi 30px */
+    font-size: 30px; /* line 426 : Penutup gaya judul tentang tablet */
+  } /* line 427 : Baris kosong pemisah */
+/* line 428 : Penyesuaian teks deskripsi tentang kami .about-copy p pada tablet */
+  .about-copy p { /* line 429 : Ukuran font teks disetel menjadi 14px */
+    font-size: 14px; /* line 430 : Penutup gaya paragraf tentang tablet */
+  } /* line 431 : Baris kosong pemisah */
+/* line 432 : Penyesuaian pergeseran foto galeri kedua .about-photo-second */
+  .about-photo-second { /* line 433 : Tetap mempertahankan offset vertikal 12px ke bawah */
+    transform: translateY(12px); /* line 434 : Penutup gaya foto kedua tablet */
+  } /* line 435 : Baris kosong pemisah */
+/* line 436 : Penyesuaian tata letak footer .site-footer pada tablet */
+  .site-footer { /* line 437 : Mengizinkan pembungkusan baris elemen footer (flex-wrap: wrap) */
+    flex-wrap: wrap; /* line 438 : Jarak celah antar baris flex sebesar 15px */
+    row-gap: 15px; /* line 439 : Penutup gaya footer tablet */
+  } /* line 440 : Baris kosong pemisah */
+/* line 441 : Menyembunyikan paragraf bio ringkas di footer pada layar kecil .site-footer > p */
+  .site-footer > p { /* line 442 : Menyembunyikan elemen (display: none) */
+    display: none; /* line 443 : Penutup aturan sembunyikan bio footer */
+  } /* line 444 : Baris kosong pemisah */
+/* line 445 : Penyesuaian posisi tombol .back-to-top pada tablet */
+  .back-to-top { /* line 446 : Mendorong tombol kembali ke atas ke sisi kanan otomatis (margin-left: auto) */
+    margin-left: auto; /* line 447 : Penutup gaya back-to-top tablet */
+  } /* line 448 : Baris kosong pemisah */
+/* line 449 : Penyesuaian teks hak cipta .copyright pada tablet */
+  .copyright { /* line 450 : Mengambil lebar penuh 100% baris bawah (flex-basis: 100%) */
+    flex-basis: 100%; /* line 451 : Penutup gaya hak cipta tablet */
+  } /* line 452 : Penutup blok media query maksimal 760px */
+} /* line 453 : Baris kosong pemisah */
+/* line 454 : Media query responsif khusus layar ponsel kecil dengan lebar maksimal 430px */
+@media (max-width: 430px) { /* line 455 : Penyesuaian kontainer utama #root pada layar ponsel kecil */
+  #root { /* line 456 : Memperkecil padding samping menjadi 18px agar ruang konten lebih lega */
+    padding: 0 18px; /* line 457 : Penutup gaya #root mobile 430px */
+  } /* line 458 : Baris kosong pemisah */
+/* line 459 : Penyesuaian padding bagian tentang kami .about-section pada ponsel kecil */
+  .about-section { /* line 460 : Padding kanan 18px */
+    padding-right: 18px; /* line 461 : Padding kiri 18px */
+    padding-left: 18px; /* line 462 : Penutup gaya about-section mobile 430px */
+  } /* line 463 : Baris kosong pemisah */
+/* line 464 : Penyesuaian jarak logo .brand pada ponsel kecil */
+  .brand { /* line 465 : Mengurangi celah antara lambang logo dan teks menjadi 8px */
+    gap: 8px; /* line 466 : Penutup gaya brand mobile 430px */
+  } /* line 467 : Baris kosong pemisah */
+/* line 468 : Penyesuaian lambang logo .brand-mark pada ponsel kecil */
+  .brand-mark { /* line 469 : Lebar lambang tetap 36px */
+    width: 36px; /* line 470 : Tinggi lambang tetap 36px */
+    height: 36px; /* line 471 : Penutup gaya brand-mark mobile 430px */
+  } /* line 472 : Baris kosong pemisah */
+/* line 473 : Penyesuaian nama merek .brand strong pada ponsel kecil */
+  .brand strong { /* line 474 : Memperkecil ukuran font nama merek menjadi 14px */
+    font-size: 14px; /* line 475 : Penutup gaya brand strong mobile 430px */
+  } /* line 476 : Baris kosong pemisah */
+/* line 477 : Penyesuaian teks slogan .brand small pada ponsel kecil */
+  .brand small { /* line 478 : Memperkecil ukuran font slogan menjadi 9px */
+    font-size: 9px; /* line 479 : Penutup gaya brand small mobile 430px */
+  } /* line 480 : Baris kosong pemisah */
+/* line 481 : Penyesuaian jarak tautan navigasi .navigation pada ponsel kecil */
+  .navigation { /* line 482 : Memperkecil jarak celah antar menu menjadi 12px */
+    gap: 12px; /* line 483 : Penutup gaya navigasi mobile 430px */
+  } /* line 484 : Baris kosong pemisah */
+/* line 485 : Penyesuaian teks tautan menu .navigation a pada ponsel kecil */
+  .navigation a { /* line 486 : Memperkecil ukuran font tautan menjadi 11px */
+    font-size: 11px; /* line 487 : Penutup gaya tautan menu mobile 430px */
+  } /* line 488 : Baris kosong pemisah */
+/* line 489 : Penyesuaian tombol .navigation .nav-cta pada ponsel kecil */
+  .navigation .nav-cta { /* line 490 : Bantalan tombol disesuaikan menjadi 8px vertikal dan 10px horizontal */
+    padding: 8px 10px; /* line 491 : Penutup gaya tombol cta mobile 430px */
+  } /* line 492 : Baris kosong pemisah */
+/* line 493 : Menyembunyikan tautan pertama navigasi di layar sangat sempit .navigation a:first-child */
+  .navigation a:first-child { /* line 494 : Menyembunyikan menu pertama (display: none) */
+    display: none; /* line 495 : Penutup aturan sembunyikan menu pertama */
+  } /* line 496 : Penutup blok media query maksimal 430px */
+} /* line 497 : Penjelasan baris 497 */
+/* line 498 : Penjelasan baris 498 */
